@@ -1,0 +1,6 @@
+--downloader aria2c
+--ignore-errors
+--continue
+--no-overwrites
+--download-archive
+--proxy "http://127.0.0.1:7897"
