@@ -235,7 +235,7 @@ normal = { family = "Source Code Pro", style = "Regular" }
 bold = { family = "Source Code Pro", style = "Bold" }
 italic = { family = "Source Code Pro", style = "Italic" }
 bold_italic = { family = "Source Code Pro", style = "Bold Italic" }
-size = 14
+size = 10
 builtin_box_drawing = true 
 
 # COLORS
