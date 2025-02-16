@@ -1,3 +1,3 @@
-require("user.color").setup()
+require("user.color")
 require("user.options")
 require("user.indent")
