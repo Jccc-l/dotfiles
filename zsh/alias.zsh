@@ -1,0 +1,7 @@
+alias ls="lsd"
+alias la="lsd -a"
+alias ll="lsd -llha"
+alias e="exit"
+alias glow="glow -pl"
+alias f="fastfetch -c /usr/share/fastfetch/presets/examples/10.jsonc"
+alias n="nvim"
