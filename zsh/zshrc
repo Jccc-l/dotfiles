@@ -12,12 +12,12 @@ source "$HOME/.config/zsh/zsh-newuser-install.zsh"
 
 # Plugins
 #source "$HOME/.config/zsh/zsh-vi-mode/zsh-vi-mode.zsh"
-source "$HOME/.config/zsh/zsh-you-should-use/zsh-you-should-use.plugin.zsh"
-source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOME/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
-source "$HOME/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme"
-source "$HOME/.config/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh"
+source "$HOME/.config/zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh"
+source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
+source "$HOME/.config/zsh/plugins/zsh-fzf-history-search/zsh-fzf-history-search.zsh"
 
 # Other Settings
 source "$HOME/.config/zsh/alias.zsh"
