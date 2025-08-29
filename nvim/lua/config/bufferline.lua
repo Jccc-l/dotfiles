@@ -1,0 +1,2 @@
+-- 确保已安装: https://github.com/akinsho/bufferline.nvim
+-- 检查 bufferline 是否可用

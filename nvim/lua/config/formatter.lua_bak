@@ -1,0 +1,110 @@
+-- ~/.config/nvim/lua/user/formatter.lua
+local M = {}
+
+local function is_executable(cmd)
+	cmd = cmd:match("^[^%s]+") or cmd
+	return vim.fn.executable(cmd) == 1
+end
+
+function M.format_current_buffer()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local filename = vim.api.nvim_buf_get_name(bufnr)
+	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+	-- 定义格式化命令（确保包含文件参数）
+	local formatters = {
+		lua = "/home/jccc/code_utils/formatters/stylua --color Never ${file}",
+		c = "/usr/bin/clang-format -i --style=GNU ${file}",
+		cpp = "/usr/bin/clang-format -i --style=GNU ${file}",
+		python = "black --quiet ${file} && isort --quiet ${file}",
+		javascript = "prettier --write ${file}",
+		typescript = "prettier --write ${file}",
+		json = "jq . ${file} > ${file}.tmp && mv ${file}.tmp ${file}",
+		markdown = "/home/jccc/.local/share/nvim/mason/bin/prettier -w ${file}",
+	}
+
+	local cmd_template = formatters[ft]
+	if not cmd_template then
+		print(("No formatter for: %s"):format(ft))
+		return
+	end
+
+	-- 创建临时文件（带正确扩展名）
+	local ext = ft == "c" and "c"
+		or ft == "cpp" and "cpp"
+		or ft == "lua" and "lua"
+		or ft == "python" and "py"
+		or ft == "javascript" and "js"
+		or ft == "typescript" and "ts"
+		or ft == "json" and "json"
+		or ft == "markdown" and "md"
+		or "tmp"
+	local tmpfile = os.tmpname() .. "." .. ext
+	vim.fn.writefile(lines, tmpfile)
+
+	-- 替换文件路径变量
+	local cmd = cmd_template:gsub("${file}", tmpfile)
+
+	-- 在替换文件路径变量后添加打印语句
+	print("Executing command:", cmd)
+
+	-- 在执行命令前添加一个标志
+	print("Running formatter for filetype:", ft)
+
+	-- 检查命令可用性
+	if not is_executable(cmd) then
+		os.remove(tmpfile)
+		print(("Command not found: %s"):format(cmd:match("^[^%s]+")))
+		return
+	end
+
+	-- 执行格式化
+	local success, formatted, stderr
+	if vim.fn.has("nvim-0.10") == 1 then
+		local result = vim.system(vim.split(cmd, "%s+"), { text = true }):wait()
+		success = result.code == 0
+		formatted = result.stdout
+		stderr = result.stderr
+	else
+		formatted = vim.fn.system(cmd)
+		success = vim.v.shell_error == 0
+		stderr = not success and formatted or nil
+	end
+
+	-- 处理结果
+	if not success then
+		os.remove(tmpfile)
+		print(
+			("Format failed:\n%s\n%s"):format(cmd:gsub(tmpfile, "[tmpfile]"), (stderr or "Unknown error"):sub(1, 200))
+		)
+		return
+	end
+
+	-- 读取格式化后的内容
+	local new_lines = {}
+	if vim.fn.filereadable(tmpfile) == 1 then
+		new_lines = vim.fn.readfile(tmpfile)
+	end
+
+	os.remove(tmpfile)
+
+	-- 应用更改
+	if #new_lines > 0 and not vim.deep_equal(lines, new_lines) then
+		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, new_lines)
+		print(("Formatted with %s"):format(cmd:match("^[^%s]+")))
+	end
+end
+
+function M.setup()
+	vim.api.nvim_create_user_command("FormatBuffer", M.format_current_buffer, {
+		desc = "Format buffer using filetype-specific formatter",
+	})
+
+	vim.keymap.set({ "n", "v" }, "<leader>f", M.format_current_buffer, {
+		silent = true,
+		desc = "Format buffer",
+	})
+end
+
+return M
