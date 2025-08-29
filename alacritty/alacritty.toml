@@ -1,0 +1,266 @@
+# ===================================================
+# Alacritty 配置文件示例
+# 适用于 v0.13+，基于 man 5 alacritty
+# ===================================================
+
+# 是否使用亮色绘制粗体文本
+#draw_bold_text_with_bright_colors = false
+
+# 透明背景是否影响所有单元格（而不仅是默认背景）
+#transparent_background_colors = false
+
+
+# ----------------------------
+# [general] 全局设置
+# ----------------------------
+[general]
+# 导入其他配置文件（可选：主题、快捷键分离管理）
+# import = [
+#   "~/.config/alacritty/themes/gruvbox-dark.toml",
+#   "~/.config/alacritty/keybindings.toml"
+# ]
+import = [
+"/home/jccc/.config/alacritty/themes/everforest_dark.toml"
+]
+
+# 启动时的工作目录，"None" 表示使用父进程目录
+working_directory = "None"
+
+# 是否启用实时重载配置（修改后无需重启）
+live_config_reload = true
+
+# (Unix only) 是否启用 IPC 通信（用于 alacritty msg 命令）
+ipc_socket = true
+
+
+# ----------------------------
+# [window] 窗口设置
+# ----------------------------
+[window]
+# 窗口尺寸（列数 x 行数）
+dimensions = { columns = 120, lines = 30 }
+
+# 窗口位置（像素），"None" 由窗口管理器决定
+position = "None"
+
+# 窗口边距（四周留白，单位：像素）
+padding = { x = 8, y = 8 }
+
+# 是否动态分配 padding（居中内容）
+dynamic_padding = true
+
+# 窗口装饰：Full（完整）、None（无边框）、Buttonless（macOS）
+decorations = "Full"
+
+# 背景透明度（0.0 完全透明，1.0 不透明）
+opacity = 0.85
+
+# (macOS/KDE Wayland) 启用背景模糊（需透明）
+blur = false
+
+# 启动模式：Windowed, Maximized, Fullscreen
+startup_mode = "Maximized"
+
+# 窗口标题
+title = "Alacritty"
+
+# 是否允许程序修改窗口标题
+dynamic_title = true
+
+# 窗口类（Linux/BSD）
+class = { instance = "alacritty", general = "Alacritty" }
+
+# 窗口置顶
+level = "Normal"
+
+# 调整窗口大小时以字符为单位（更整齐）
+resize_increments = true
+
+
+# ----------------------------
+# [font] 字体设置
+# ----------------------------
+[font]
+# 基础字体
+normal = { family = "Source Code Pro", style = "Regular" }
+# bold = { family = "JetBrains Mono", style = "Bold" }
+# italic = { family = "JetBrains Mono", style = "Italic" }
+# bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+
+# 字号（点）
+size = 10.0
+
+# 字符间距（x: 字间距, y: 行间距）
+offset = { x = 0, y = 1 }
+
+# 字形在单元格内的偏移（微调位置）
+glyph_offset = { x = 0, y = 0 }
+
+# 使用内置字体渲染方框字符、Powerline 符号等
+builtin_box_drawing = true
+
+
+# ----------------------------
+# [colors] 颜色方案（示例：自定义深色）
+# ----------------------------
+# [colors]
+# # 基础前景/背景
+# [colors.primary]
+# foreground = "#d8d8d8"
+# background = "#181818"
+# dim_foreground = "#828482"
+# bright_foreground = "#ffffff"
+# 
+# # 光标颜色
+# [colors.cursor]
+# text = "CellBackground"
+# cursor = "CellForeground"
+# 
+# # 搜索高亮
+# [colors.search]
+# matches = { foreground = "#181818", background = "#ac4242" }
+# focused_match = { foreground = "#181818", background = "#f4bf75" }
+# 
+# # 选择区域
+# [colors.selection]
+# text = "CellBackground"
+# background = "CellForeground"
+# 
+# # 正常 16 色
+# [colors.normal]
+# black   = "#181818"
+# red     = "#ac4242"
+# green   = "#90a959"
+# yellow  = "#f4bf75"
+# blue    = "#6a9fb5"
+# magenta = "#aa759f"
+# cyan    = "#75b5aa"
+# white   = "#d8d8d8"
+# 
+# [colors.bright]
+# black   = "#6b6b6b"
+# red     = "#c55555"
+# green   = "#aac474"
+# yellow  = "#feca88"
+# blue    = "#82b8c8"
+# magenta = "#c28cb8"
+# cyan    = "#93d3c3"
+# white   = "#f8f8f8"
+
+# ----------------------------
+# [cursor] 光标设置
+# ----------------------------
+[cursor]
+# 光标样式：Block, Underline, Beam
+style = { shape = "Beam", blinking = "On" }
+
+# 光标闪烁间隔（毫秒）
+blink_interval = 750
+
+# 光标闪烁超时（秒，0 为不超时）
+blink_timeout = 5
+
+# 失焦时光标变为中空
+unfocused_hollow = true
+
+# 光标粗细（占字符宽度比例）
+thickness = 0.2
+
+
+# ----------------------------
+# [selection] 选择设置
+# ----------------------------
+[selection]
+# 语义选择分隔符（影响双击选词）
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+# 选中即复制到剪贴板（X11 主选择区）
+save_to_clipboard = false
+
+
+# ----------------------------
+# [terminal] 终端设置
+# ----------------------------
+[terminal]
+# 自定义 shell（默认使用 $SHELL）
+shell = { program = "/usr/bin/zsh", args = ["-l"] }
+
+# 控制 OSC 52 剪贴板操作
+osc52 = "OnlyCopy"
+
+
+# ----------------------------
+# [mouse] 鼠标设置
+# ----------------------------
+[mouse]
+# 输入时隐藏鼠标
+hide_when_typing = true
+
+# 鼠标快捷键（右键粘贴）
+bindings = [
+  { mouse = "Right", mods = "Control", action = "Paste" },
+]
+
+
+# ----------------------------
+# [hints] 链接提示（快速打开 URL）
+# ----------------------------
+[[hints.enabled]]
+# 匹配超链接
+hyperlinks = true
+# 启用智能后处理（如去除标点）
+post_processing = true
+# 不持久（选中后消失）
+persist = false
+# 执行命令（Linux）
+command = "xdg-open"
+# 触发键（Ctrl+Shift+O）
+binding = { key = "O", mods = "Control|Shift" }
+# 鼠标悬停显示下划线
+mouse = { mods = "None", enabled = true }
+
+
+# ----------------------------
+# [keyboard] 键盘快捷键
+# ----------------------------
+[keyboard]
+bindings = [
+  # 新建窗口
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  # 复制
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  # 常规粘贴
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  # 放大字体
+  { key = "=", mods = "Control|Shift", action = "IncreaseFontSize" },
+  # 缩小字体
+  { key = "-", mods = "Control|Shift", action = "DecreaseFontSize" },
+  # 重置字体
+  { key = "0", mods = "Control|Shift", action = "ResetFontSize" },
+  # 搜索
+  { key = "F", mods = "Control|Shift", action = "SearchForward" },
+  # 切换全屏
+  { key = "F11", action = "ToggleFullscreen" },
+]
+
+
+# ----------------------------
+# [bell] 终端响铃设置
+# ----------------------------
+[bell]
+# 视觉响铃：颜色、持续时间、动画
+#animation = "EaseOut"
+#duration = 300
+#color = "#444444"
+# 响铃时执行命令（如播放声音）
+#command = { program = "canberra-gtk-play", args = ["-i", "bell"] }
+command = { program = "paplay", args = ["--volume=50000", "/usr/share/sounds/freedesktop/stereo/bell.oga"] }
+
+
+# ----------------------------
+# [debug] 调试选项（可关闭）
+# ----------------------------
+[debug]
+render_timer = false
+persistent_logging = false
+log_level = "Warn"
