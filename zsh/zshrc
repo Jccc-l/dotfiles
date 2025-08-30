@@ -33,6 +33,12 @@ source "$HOME/.config/zsh/yazi.zsh"
 # Keymaps
 source "$HOME/.config/zsh/keymap.zsh"
 
+# fzf
+source "$HOME/.config/zsh/fzf.zsh"
+
+# vi
+source "$HOME/.config/zsh/vi.zsh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
