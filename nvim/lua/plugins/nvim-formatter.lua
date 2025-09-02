@@ -53,7 +53,27 @@ return {
 									util.escape_path(util.get_current_buffer_file_name()),
 									-- 您可以在这里添加更多参数，例如:
 									-- "-style=file", -- 明确指定使用项目中的配置文件
-									"-style=Microsoft", -- 明确指定使用项目中的配置文件
+									"-style=GNU", -- 明确指定使用项目中的配置文件
+								},
+								stdin = true,
+								try_node_modules = true,
+								-- 您可以在这里添加其他配置，例如:
+								-- cwd = util.get_current_buffer_file_path() -- 设置工作目录，帮助 clang-format 找到 .clang-format 文件
+							}
+						end,
+					},
+					cpp = {
+						require("formatter.filetypes.cpp").clangformat,
+						-- 自定义 clang-format 配置
+						function()
+							return {
+								exe = "clang-format",
+								args = {
+									"-assume-filename",
+									util.escape_path(util.get_current_buffer_file_name()),
+									-- 您可以在这里添加更多参数，例如:
+									-- "-style=file", -- 明确指定使用项目中的配置文件
+									"-style=GNU", -- 明确指定使用项目中的配置文件
 								},
 								stdin = true,
 								try_node_modules = true,
