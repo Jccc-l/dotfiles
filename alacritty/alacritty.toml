@@ -19,9 +19,7 @@
 #   "~/.config/alacritty/themes/gruvbox-dark.toml",
 #   "~/.config/alacritty/keybindings.toml"
 # ]
-import = [
-"/home/jccc/.config/alacritty/themes/everforest_dark.toml"
-]
+import = ["/home/jccc/.config/alacritty/themes/everforest_dark.toml"]
 
 # 启动时的工作目录，"None" 表示使用父进程目录
 working_directory = "None"
@@ -110,22 +108,22 @@ builtin_box_drawing = true
 # background = "#181818"
 # dim_foreground = "#828482"
 # bright_foreground = "#ffffff"
-# 
+#
 # # 光标颜色
 # [colors.cursor]
 # text = "CellBackground"
 # cursor = "CellForeground"
-# 
+#
 # # 搜索高亮
 # [colors.search]
 # matches = { foreground = "#181818", background = "#ac4242" }
 # focused_match = { foreground = "#181818", background = "#f4bf75" }
-# 
+#
 # # 选择区域
 # [colors.selection]
 # text = "CellBackground"
 # background = "CellForeground"
-# 
+#
 # # 正常 16 色
 # [colors.normal]
 # black   = "#181818"
@@ -136,7 +134,7 @@ builtin_box_drawing = true
 # magenta = "#aa759f"
 # cyan    = "#75b5aa"
 # white   = "#d8d8d8"
-# 
+#
 # [colors.bright]
 # black   = "#6b6b6b"
 # red     = "#c55555"
@@ -197,9 +195,7 @@ osc52 = "OnlyCopy"
 hide_when_typing = true
 
 # 鼠标快捷键（右键粘贴）
-bindings = [
-  { mouse = "Right", mods = "Control", action = "Paste" },
-]
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
 
 
 # ----------------------------
@@ -254,7 +250,10 @@ bindings = [
 #color = "#444444"
 # 响铃时执行命令（如播放声音）
 #command = { program = "canberra-gtk-play", args = ["-i", "bell"] }
-command = { program = "paplay", args = ["--volume=50000", "/usr/share/sounds/freedesktop/stereo/bell.oga"] }
+command = { program = "paplay", args = [
+  "--volume=50000",
+  "/usr/share/sounds/freedesktop/stereo/bell.oga",
+] }
 
 
 # ----------------------------

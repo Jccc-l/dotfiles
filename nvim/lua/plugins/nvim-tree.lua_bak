@@ -6,7 +6,7 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 		-- setup with some options
 		require("nvim-tree").setup({})
-		vim.notify = require("notify")
+		vim.notify=require("notify")
 		vim.api.nvim_create_user_command("Bdelete", function(opts)
 			local bufnr = opts.args ~= "" and tonumber(opts.args) or vim.api.nvim_get_current_buf()
 
@@ -63,39 +63,6 @@ return {
 			local name = vim.api.nvim_buf_get_name(buf)
 			return ft == "NvimTree" or name:match("NvimTree") ~= nil
 		end
-		-- 工具函数：判断 buffer 是否为“辅助窗口”（应被忽略的特殊 buffer）
-		local function is_auxiliary_buffer(buf)
-			local ft = vim.bo[buf].filetype
-			local name = vim.api.nvim_buf_get_name(buf)
-
-			-- 常见的辅助 buffer 类型
-			local auxiliary_fts = {
-				NvimTree = true,
-				dapui_watches = true,
-				dapui_stacks = true,
-				dapui_breakpoints = true,
-				dapui_scopes = true,
-				dapui_repl = true,
-				["dap-repl"] = true, -- 有些 DAP 插件使用这个
-				help = true, -- 可选：是否忽略帮助窗口？
-				terminal = true, -- 可选：是否忽略终端？
-				telescope = true, -- 可选：Telescope 预览窗
-				notify = true, -- 可选：通知窗口
-				-- 可继续添加
-			}
-
-			-- 按 filetype 判断
-			if auxiliary_fts[ft] then
-				return true
-			end
-
-			-- 按 buffer 名称匹配（例如包含 "NvimTree" 或 "dap"）
-			if name:match("NvimTree") or name:match("dap_") or name:match("DAP") then
-				return true
-			end
-
-			return false
-		end
 
 		-- 获取所有非 NvimTree 的文件窗口
 		local function get_file_windows()
@@ -103,7 +70,7 @@ return {
 			for _, win in ipairs(vim.api.nvim_list_wins()) do
 				local buf = vim.api.nvim_win_get_buf(win)
 				if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-					if not is_auxiliary_buffer(buf) then
+					if not is_nvim_tree_buffer(buf) then
 						table.insert(file_windows, win)
 					end
 				end
@@ -115,7 +82,7 @@ return {
 		local function has_unsaved_changes()
 			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 				if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-					if not is_auxiliary_buffer(buf) and vim.bo[buf].modified then
+					if not is_nvim_tree_buffer(buf) and vim.bo[buf].modified then
 						return true
 					end
 				end
@@ -128,7 +95,7 @@ return {
 			local unsaved = {}
 			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 				if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-					if not is_auxiliary_buffer(buf) and vim.bo[buf].modified then
+					if not is_nvim_tree_buffer(buf) and vim.bo[buf].modified then
 						local name = vim.api.nvim_buf_get_name(buf)
 						local display_name = name == "" and "[No Name]" or vim.fn.fnamemodify(name, ":t")
 						table.insert(unsaved, display_name)

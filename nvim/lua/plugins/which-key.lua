@@ -21,13 +21,7 @@ return {
 		end,
 		--- You can add any mappings here, or use `require('which-key').add()` later
 		---@type wk.Spec
-		spec = {
-			-- 定义前缀键 "<leader>f" 及其描述
-			{ "<leader>f", desc = "Format" },
-			-- 定义具体的子命令
-			{ "<leader>ff", "<cmd>FormatLock<cr>", desc = "Format Lock" },
-			{ "<leader>fw", "<cmd>FormatWriteLock<cr>", desc = "FormatWrite Lock" },
-		},
+		spec = {},
 		-- show a warning when issues were detected with your mappings
 		notify = true,
 		-- Which-key automatically sets up triggers for your mappings.
@@ -182,9 +176,334 @@ return {
 		},
 		debug = false, -- enable wk.log in the current directory
 	},
-	keys = {
-		{ "<leader>e", require("nvim-tree.api").tree.toggle, desc = "Exlporer" },
-		{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Outline" },
-		{ "<leader>t", "<cmd>TranslateW!<CR>", desc = "Translator" },
-	},
+	keys = {},
+	config = function()
+		require("which-key").add({
+			---------
+			-- DAP --
+			---------
+			{
+				"<F5>",
+				function()
+					require("dap").continue()
+				end,
+				desc = "Debug: Continue",
+			},
+			{
+				"<F10>",
+				function()
+					require("dap").step_over()
+				end,
+				desc = "Debug: Step Over",
+			},
+			{
+				"<F11>",
+				function()
+					require("dap").step_into()
+				end,
+				desc = "Debug: Step Into",
+			},
+			{
+				"<F12>",
+				function()
+					require("dap").step_out()
+				end,
+				desc = "Debug: Step Out",
+			},
+
+			{ "<leader>d", desc = "DAP Command" },
+			{
+				"<leader>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				desc = "Toggle Breakpoint",
+			},
+			{
+				"<leader>dB",
+				function()
+					require("dap").set_breakpoint()
+				end,
+				desc = "Set Breakpoint",
+			},
+			{
+				"<leader>dP",
+				function()
+					require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+				end,
+				desc = "Log Point",
+			},
+			{
+				"<leader>dr",
+				function()
+					require("dap").repl.open()
+				end,
+				desc = "REPL Open",
+			},
+			{
+				"<leader>dl",
+				function()
+					require("dap").run_last()
+				end,
+				desc = "Run Last",
+			},
+			{
+				"<leader>dh",
+				function()
+					require("dap.ui.widgets").hover()
+				end,
+				mode = { "n", "v" },
+				desc = "Hover Variables",
+			},
+			{
+				"<leader>dp",
+				function()
+					require("dap.ui.widgets").preview()
+				end,
+				mode = { "n", "v" },
+				desc = "Preview Value",
+			},
+			{
+				"<leader>df",
+				function()
+					local widgets = require("dap.ui.widgets")
+					widgets.centered_float(widgets.frames)
+				end,
+				desc = "Frames (Float)",
+			},
+			{
+				"<leader>ds",
+				function()
+					local widgets = require("dap.ui.widgets")
+					widgets.centered_float(widgets.scopes)
+				end,
+				desc = "Scopes (Float)",
+			},
+
+			------------
+			-- DAP UI --
+			------------
+
+			{ "<leader>du", group = "DAP UI", desc = "DAP UI" },
+			{
+				"<leader>dut",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "Toggle DAP UI",
+			},
+			{
+				"<leader>duc",
+				function()
+					require("dapui").close()
+				end,
+				desc = "Close DAP UI",
+			},
+			{
+				"<leader>duo",
+				function()
+					require("dapui").open()
+				end,
+				desc = "Open DAP UI",
+			},
+
+			--------------
+			-- Exlporer --
+			--------------
+
+			{ "<leader>e", require("nvim-tree.api").tree.toggle, desc = "Exlporer" },
+
+			-------------
+			-- Outline --
+			-------------
+
+			{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Outline" },
+
+			---------------
+			-- Translate --
+			---------------
+
+			{ "<leader>t", "<cmd>TranslateW!<CR>", desc = "Translator" },
+
+			------------
+			-- Format --
+			------------
+
+			{ "<M-f>", group = "Format" },
+			{ "<M-f><M-f>", "<cmd>FormatLock<cr>", desc = "Format Lock" },
+			{ "<M-f><M-w>", "<cmd>FormatWriteLock<cr>", desc = "FormatWrite Lock" },
+			--------------
+			-- markdown --
+			--------------
+
+			{ "<leader>m", desc = "Markdown" },
+			{ "<leader>mm", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" },
+			{
+				"<leader>mr",
+				function()
+					require("render-markdown").toggle()
+				end,
+				desc = "Render Markdown toggle",
+			},
+
+			--------------
+			-- Drop Bar --
+			--------------
+
+			{ "<Leader>;", desc = "Drop Bar" },
+			{
+				"<Leader>;;",
+				function()
+					require("dropbar.api").goto_context_start()
+				end,
+				desc = "Pick symbols in winbar",
+			},
+			{
+				"<leader>;[",
+				function()
+					require("dropbar.api").goto_context_start()
+				end,
+				desc = "Go to start of current context",
+			},
+			{
+				"<leader>;]",
+				function()
+					require("dropbar.api").select_next_context()
+				end,
+				desc = "Select next context",
+			},
+
+			------------------------
+			-- cellular-automaton --
+			------------------------
+
+			{ "<leader>car", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "Cellular Automation Rain" },
+			{ "<leader>cag", "<cmd>CellularAutomaton game_of_life<CR>", desc = "Cellular Automation Game of Life" },
+
+			---------------
+			-- Telescope --
+			---------------
+
+			{
+				"<leader>f",
+				desc = "Telescope",
+			},
+			{
+				"<leader>ff",
+				function()
+					require("telescope.builtin").find_files() -- require("telescope.themes").get_dropdown())
+				end,
+				desc = "Telescope find files",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("telescope.builtin").live_grep(require("telescope.themes").get_ivy({
+						layout_config = {
+							height = 0.3,
+						},
+					}))
+				end,
+				desc = "Telescope live grep",
+			},
+			{
+				"<leader>fb",
+				function()
+					require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+						layout_config = {
+							width = 0.5,
+						},
+					}))
+				end,
+				desc = "Telescope buffers",
+			},
+			{
+				"<leader>fh",
+				function()
+					require("telescope.builtin").help_tags(require("telescope.themes").get_ivy({
+						layout_config = {
+							height = 0.3,
+						},
+					}))
+				end,
+				desc = "Telescope help tags",
+			},
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = true })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+
+			-------------
+			-- Trouble --
+			-------------
+
+			{
+				"<leader>x",
+				desc = "Trouble",
+			},
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>xl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+
+			{ "<M-j>", "5j", mode = { "n", "v" } },
+			{ "<M-k>", "5k", mode = { "n", "v" } },
+			{ "<M-h>", "5h", mode = { "n", "v" } },
+			{ "<M-l>", "5l", mode = { "n", "v" } },
+
+			----------
+			-- Yazi --
+			----------
+			{
+				"<leader>y",
+				desc = "Yazi",
+			},
+			{
+				"<leader>yy",
+				mode = { "n", "v" },
+				"<cmd>Yazi<cr>",
+				desc = "Open yazi at the current file",
+			},
+			{
+				-- Open in the current working directory
+				"<leader>yc",
+				"<cmd>Yazi cwd<cr>",
+				desc = "Open the file manager in nvim's working directory",
+			},
+			{
+				"<leader>yt",
+				"<cmd>Yazi toggle<cr>",
+				desc = "Resume the last yazi session",
+			},
+		})
+	end,
 }

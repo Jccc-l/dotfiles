@@ -1,3 +1,1 @@
-return {
-	{ "voldikss/vim-translator" },
-}
+return { "voldikss/vim-translator" }

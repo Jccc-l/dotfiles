@@ -15,6 +15,8 @@ keymap = [
 	# Hopping
 	{ on = "k", run = "arrow prev", desc = "Previous file" },
 	{ on = "j", run = "arrow next", desc = "Next file" },
+	{ on = "<A-k>", run = "arrow -5", desc = "Previous file" },
+	{ on = "<A-j>", run = "arrow +5", desc = "Next file" },
 
 	{ on = "<Up>",   run = "arrow prev", desc = "Previous file" },
 	{ on = "<Down>", run = "arrow next", desc = "Next file" },

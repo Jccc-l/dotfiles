@@ -1,2 +1,4 @@
---return{{"dracula/vim"}}
-return{}
+return {
+	"dracula/vim",
+	name = "dracula",
+}
