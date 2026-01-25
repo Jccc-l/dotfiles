@@ -1,0 +1,27 @@
+source "$HOME/.config/zsh/zsh-newuser-install.zsh"
+
+# Plugins
+#source "$HOME/.config/zsh/zsh-vi-mode/zsh-vi-mode.zsh"
+source "$HOME/.config/zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh"
+source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+source "$HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
+
+# Other Settings
+source "$HOME/.config/zsh/alias.zsh"
+
+# Environment
+source "$HOME/.config/zsh/env.zsh"
+
+# Yazi
+source "$HOME/.config/zsh/yazi.zsh"
+
+# Keymaps
+source "$HOME/.config/zsh/keymap.zsh"
+
+# fzf
+source "$HOME/.config/zsh/fzf.zsh"
+
+# vi
+source "$HOME/.config/zsh/vi.zsh"
+
