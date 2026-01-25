@@ -1,6 +1,6 @@
 [general]
 import = [
-  "~/.config/alacritty/dank-theme.toml"
+    "/home/jccc/.config/alacritty/snazzy.toml"
 ]
 
 [window]
