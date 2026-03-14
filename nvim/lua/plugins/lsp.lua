@@ -179,6 +179,7 @@ return {
 				"clangd",
 				"jdtls",
 				"vimls",
+				"ltex",
 			},
 			ensure_installed = {
 				"lua_ls",
@@ -187,6 +188,7 @@ return {
 				"clangd",
 				"jdtls",
 				"vimls",
+				"ltex",
 			},
 		},
 	},

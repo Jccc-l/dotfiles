@@ -47,11 +47,20 @@ return {
 				c = {
 					require("formatter.filetypes.c").clangformat,
 				},
+				html = {
+					require("formatter.filetypes.html").prettier,
+				},
 				java = {
 					require("formatter.filetypes.java").clangformat,
 				},
-				python={
+				python = {
 					require("formatter.filetypes.python").autopep8,
+				},
+				markdown = {
+					require("formatter.filetypes.markdown").prettier,
+				},
+				json = {
+					require("formatter.filetypes.json").prettier,
 				},
 
 				-- Use the special "*" filetype for defining formatter configurations on

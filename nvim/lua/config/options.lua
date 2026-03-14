@@ -5,7 +5,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.wrap = false
 
-vim.cmd.colorscheme("dracula")
+--vim.cmd.colorscheme("dracula")
 
 vim.opt.list = true
 vim.opt.listchars = { space = "_", tab = "> " }

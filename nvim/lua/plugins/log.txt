@@ -1,0 +1,246 @@
+
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "/usr/share/nvim/runtime/ftplugin.vim"
+finished sourcing /usr/share/nvim/runtime/ftplugin.vim
+sourcing "/usr/share/nvim/runtime/indent.vim"
+finished sourcing /usr/share/nvim/runtime/indent.vim
+sourcing "/usr/share/nvim/runtime/filetype.lua"
+line 0: sourcing "nvim_exec2() called at /usr/share/nvim/runtime/filetype.lua:0"
+not found in runtime path: "ftdetect/*.{vim,lua}"
+finished sourcing nvim_exec2() called at /usr/share/nvim/runtime/filetype.lua:0
+continuing in /usr/share/nvim/runtime/filetype.lua
+finished sourcing /usr/share/nvim/runtime/filetype.lua
+sourcing "/usr/share/nvim/runtime/syntax/syntax.vim"
+line 20: sourcing "/usr/share/nvim/runtime/syntax/synload.vim"
+finished sourcing /usr/share/nvim/runtime/syntax/synload.vim
+continuing in /usr/share/nvim/runtime/syntax/syntax.vim
+Executing FileType Autocommands for "*"
+autocommand if !exists('b:ts_highlight') | 0verbose exe "set syntax=" . expand("<amatch>") | endif
+
+finished sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+sourcing "/usr/share/nvim/runtime/plugin/gzip.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+sourcing "/usr/share/nvim/runtime/plugin/matchit.vim"
+not found in 'packpath': "pack/*/start/matchit"
+line 3: sourcing "/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim"
+finished sourcing /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+continuing in /usr/share/nvim/runtime/plugin/matchit.vim
+finished sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+sourcing "/usr/share/nvim/runtime/plugin/matchparen.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+sourcing "/usr/share/nvim/runtime/plugin/netrwPlugin.vim"
+not found in 'packpath': "pack/*/start/netrw"
+line 7: sourcing "/usr/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim"
+finished sourcing /usr/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+continuing in /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+finished sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+sourcing "/usr/share/nvim/runtime/plugin/rplugin.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+sourcing "/usr/share/nvim/runtime/plugin/tarPlugin.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+sourcing "/usr/share/nvim/runtime/plugin/tutor.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+sourcing "/usr/share/nvim/runtime/plugin/zipPlugin.vim"
+finished sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+sourcing "/usr/share/nvim/runtime/plugin/editorconfig.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/editorconfig.lua
+sourcing "/usr/share/nvim/runtime/plugin/man.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/man.lua
+sourcing "/usr/share/nvim/runtime/plugin/nvim/net.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/nvim/net.lua
+sourcing "/usr/share/nvim/runtime/plugin/nvim/spellfile.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/nvim/spellfile.lua
+sourcing "/usr/share/nvim/runtime/plugin/osc52.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/osc52.lua
+sourcing "/usr/share/nvim/runtime/plugin/shada.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/shada.lua
+sourcing "/usr/share/nvim/runtime/plugin/tohtml.lua"
+finished sourcing /usr/share/nvim/runtime/plugin/tohtml.lua
+not found in 'packpath': "pack/*/start/*"
+not found in 'packpath': "start/*"
+not found in runtime path: "plugin/**/*"
+Executing BufWinEnter Autocommands for "*"
+autocommand autocmd SafeState * ++once call s:Highlight_Matching_Pair()
+
+Executing BufEnter Autocommands for "*"
+autocommand sil call s:LocalBrowse(expand("<amatch>"))
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 75: vim/_defaults.lua:0>
+
+autocommand <Lua 76: vim/_defaults.lua:0>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 77: vim/_defaults.lua:0>
+
+Executing VimEnter Autocommands for "*"
+autocommand sil call s:VimEnter(expand("<amatch>"))
+
+Executing UIEnter Autocommands for "*"
+autocommand <Lua 91: /usr/share/nvim/runtime/plugin/osc52.lua:8>
+
+Executing SafeState Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+
+
+--- Terminal info --- {{{
+&term: xterm-256color
+using terminfo database
+
+Boolean capabilities:
+  back_color_erase: true
+  truecolor ('Tc' or 'RGB'): false
+  extended underline ('Su'): false
+
+Numeric capabilities: (-1 for unknown)
+  lines: 24
+  columns: 80
+  max_colors: 80
+
+String capabilities:
+  carriage_return                 = ^M
+  change_scroll_region            = ^[[%i%p1%d;%p2%dr
+  clear_screen                    = ^[[H^[[2J
+  clr_eol                         = ^[[K
+  clr_eos                         = ^[[J
+  cursor_address                  = ^[[%i%p1%d;%p2%dH
+  cursor_down                     = ^@
+  cursor_invisible                = ^[[?25l
+  cursor_left                     = ^H
+  cursor_home                     = ^[[H
+  cursor_normal                   = ^[[?25h
+  cursor_up                       = ^[[A
+  cursor_right                    = ^[[C
+  delete_line                     = ^[[M
+  enter_bold_mode                 = ^[[1m
+  enter_ca_mode                   = ^[[?1049h^[[22;0;0t
+  enter_italics_mode              = ^[[3m
+  enter_reverse_mode              = ^[[7m
+  enter_standout_mode             = ^[[7m
+  enter_underline_mode            = ^[[4m
+  erase_chars                     = ^[[%p1%dX
+  exit_attribute_mode             = ^[(B^[[m
+  exit_ca_mode                    = ^[[?1049l^[[23;0;0t
+  from_status_line                = ^G
+  insert_line                     = ^[[L
+  keypad_local                    = ^[[?1l^[>
+  keypad_xmit                     = ^[[?1h^[=
+  parm_delete_line                = ^[[%p1%dM
+  parm_down_cursor                = ^[[%p1%dB
+  parm_insert_line                = ^[[%p1%dL
+  parm_left_cursor                = ^[[%p1%dD
+  parm_right_cursor               = ^[[%p1%dC
+  parm_up_cursor                  = ^[[%p1%dA
+  set_a_background                = ^[[%?%p1%{8}%<%t4%p1%d%e%p1%{16}%<%t10%p1%{8}%-%d%e48;5;%p1%d%;m
+  set_a_foreground                = ^[[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;m
+  set_attributes                  = %?%p9%t^[(0%e^[(B%;^[[0%?%p6%t;1%;%?%p5%t;2%;%?%p2%t;4%;%?%p1%p3%|%t;7%;%?%p4%t;5%;%?%p7%t;8%;m
+  set_lr_margin                   = ^[[?69h^[[%i%p1%d;%p2%ds
+  to_status_line                  = ^[]0;
+  set_cursor_style (Ss)           = ^[[%p1%d q
+  enter_strikethrough_mode (smxx) = ^[[9m
+  set_rgb_foreground (setrgbf)    = ^[[38;2;%p1%d;%p2%d;%p3%dm
+  set_rgb_background (setrgbb)    = ^[[48;2;%p1%d;%p2%d;%p3%dm
+  set_cursor_color (Cs)           = ^[]12;%p1%s^G
+  reset_cursor_color (Cr)         = ^[]112^G
+  set_underline_style (Smulx)     = ^[[4:%p1%dm
+  key_beg                         = ^[OE
+  key_btab                        = ^[[Z
+  key_dc                          = ^[[3~, key_sdc = ^[[3;2~
+  key_end                         = ^[OF, key_send = ^[[1;2F
+  key_home                        = ^[OH, key_shome = ^[[1;2H
+  key_ic                          = ^[[2~, key_sic = ^[[2;2~
+  key_npage                       = ^[[6~
+  key_ppage                       = ^[[5~
+  key_f2                          = ^[OQ
+  key_f3                          = ^[OR
+  key_f4                          = ^[OS
+  key_f5                          = ^[[15~
+  key_f6                          = ^[[17~
+  key_f7                          = ^[[18~
+  key_f8                          = ^[[19~
+  key_f9                          = ^[[20~
+  key_f10                         = ^[[21~
+  key_f11                         = ^[[23~
+  key_f12                         = ^[[24~
+  key_f13                         = ^[[1;2P
+  key_f14                         = ^[[1;2Q
+  key_f15                         = ^[[1;2R
+  key_f16                         = ^[[1;2S
+  key_f17                         = ^[[15;2~
+  key_f18                         = ^[[17;2~
+  key_f19                         = ^[[18;2~
+  key_f20                         = ^[[19;2~
+  key_f21                         = ^[[20;2~
+  key_f22                         = ^[[21;2~
+  key_f23                         = ^[[23;2~
+  key_f24                         = ^[[24;2~
+  key_f25                         = ^[[1;5P
+  key_f26                         = ^[[1;5Q
+  key_f27                         = ^[[1;5R
+  key_f28                         = ^[[1;5S
+  key_f29                         = ^[[15;5~
+  key_f30                         = ^[[17;5~
+  key_f31                         = ^[[18;5~
+  key_f32                         = ^[[19;5~
+  key_f33                         = ^[[20;5~
+  key_f34                         = ^[[21;5~
+  key_f35                         = ^[[23;5~
+  key_f36                         = ^[[24;5~
+  key_f37                         = ^[[1;6P
+  key_f38                         = ^[[1;6Q
+  key_f39                         = ^[[1;6R
+  key_f40                         = ^[[1;6S
+  key_f41                         = ^[[15;6~
+  key_f42                         = ^[[17;6~
+  key_f43                         = ^[[18;6~
+  key_f44                         = ^[[19;6~
+  key_f45                         = ^[[20;6~
+  key_f46                         = ^[[21;6~
+  key_f47                         = ^[[23;6~
+  key_f48                         = ^[[24;6~
+  key_f49                         = ^[[1;3P
+  key_f50                         = ^[[1;3Q
+  key_f51                         = ^[[1;3R
+  key_f52                         = ^[[1;3S
+  key_f53                         = ^[[15;3~
+  key_f54                         = ^[[17;3~
+  key_f55                         = ^[[18;3~
+  key_f56                         = ^[[19;3~
+  key_f57                         = ^[[20;3~
+  key_f58                         = ^[[21;3~
+  key_f59                         = ^[[23;3~
+  key_f60                         = ^[[24;3~
+  key_f61                         = ^[[1;4P
+  key_f62                         = ^[[1;4Q
+  key_f63                         = ^[[1;4R
+}}}
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 74: vim/_defaults.lua:0>
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 75: /usr/share/nvim/runtime/plugin/osc52.lua:39>
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 74: vim/_defaults.lua:0>
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 106: /usr/share/nvim/runtime/lua/vim/termcap.lua:36>
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 74: vim/_defaults.lua:0>
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 106: /usr/share/nvim/runtime/lua/vim/termcap.lua:36>
+-- INSERT --
+Executing CursorMovedI Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing TextChangedI Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+
+Executing UILeave Autocommands for "*"
+autocommand <Lua 92: /usr/share/nvim/runtime/plugin/osc52.lua:99>

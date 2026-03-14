@@ -81,6 +81,11 @@ return {
 				desc = "Toggle DAP UI",
 			},
 			{ "<leader>x", group = "Trouble" },
+
+			{ "<M-h>", "5h" },
+			{ "<M-j>", "5j" },
+			{ "<M-k>", "5k" },
+			{ "<M-l>", "5l" },
 		})
 	end,
 }
