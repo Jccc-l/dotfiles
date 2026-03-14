@@ -25,3 +25,5 @@ source "$HOME/.config/zsh/fzf.zsh"
 # vi
 source "$HOME/.config/zsh/vi.zsh"
 
+# Conda
+source "$HOME/.config/zsh/conda.zsh"

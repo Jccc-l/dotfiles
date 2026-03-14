@@ -1,8 +1,3 @@
-[general]
-import = [
-    "/home/jccc/.config/alacritty/snazzy.toml"
-]
-
 [window]
 decorations = "None"
 padding = { x = 12, y = 12 }
@@ -33,10 +28,34 @@ bindings = [
   { key = "Equals",  mods = "Control|Shift", action = "IncreaseFontSize" },
   { key = "Minus",   mods = "Control",       action = "DecreaseFontSize" },
   { key = "Key0",    mods = "Control",       action = "ResetFontSize"    },
+  { key = "Enter",   mods = [],              chars = "\n" },
   { key = "Enter",   mods = "Shift",         chars = "\n" },
 ]
 [font]
 normal={family = "Source Code Pro", style="Regular"}
 
-[terminal]
-shell = { program = "/bin/zsh", args = ["-l"] }
+[colors.primary]
+background = '#282a36'
+foreground = '#eff0eb'
+
+# Normal colors
+[colors.normal]
+black   = '#282a36'
+red     = '#ff5c57'
+green   = '#5af78e'
+yellow  = '#f3f99d'
+blue    = '#57c7ff'
+magenta = '#ff6ac1'
+cyan    = '#9aedfe'
+white   = '#f1f1f0'
+
+# Bright colors
+[colors.bright]
+black   = '#686868'
+red     = '#ff5c57'
+green   = '#5af78e'
+yellow  = '#f3f99d'
+blue    = '#57c7ff'
+magenta = '#ff6ac1'
+cyan    = '#9aedfe'
+white   = '#f1f1f0'

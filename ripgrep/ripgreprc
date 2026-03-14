@@ -1,0 +1,13 @@
+--color=always
+--line-number
+--ignore-case
+--hidden
+--follow
+--threads=12
+--no-unicode
+--smart-case
+--colors=line:fg:green
+--colors=path:fg:blue
+--colors=match:fg:red
+--max-columns=150
+--max-columns-preview
