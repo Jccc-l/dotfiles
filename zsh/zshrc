@@ -1,1 +1,2 @@
 . "$HOME/.config/zsh/zsh-newuser.zsh"
+. "$HOME/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
