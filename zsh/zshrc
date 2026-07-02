@@ -1,3 +1,5 @@
 . "$HOME/.config/zsh/zsh-newuser.zsh"
 . "$HOME/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 . "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+. "$HOME/.config/zsh/fzf.zsh"
+. "$HOME/.config/zsh/fzf-custom.zsh"
